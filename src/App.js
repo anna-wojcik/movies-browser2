@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./GlobalStyle";
+import { Switch, Route, HashRouter } from "react-router-dom/cjs/react-router-dom.min";
+import MoviesListPage from "./feature/MoviesListPage";
+import { themeLight } from "./theme";
+import PeopleListPage from "./feature/PeopleListPage";
+import Header from "./feature/Header";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={themeLight}>
+      <GlobalStyle />
+
+      <HashRouter>
+        <Header />
+
+        <Switch>
+          <Route path="/people">
+            <PeopleListPage />
+          </Route>
+          <Route path="/">
+            <MoviesListPage />
+          </Route>
+        </Switch>
+      </HashRouter>
+    </ThemeProvider>
   );
 }
 
