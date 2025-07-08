@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
-import { Switch, Route, HashRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { Switch, Route, HashRouter, Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import MoviesListPage from "./feature/MoviesListPage";
 import { themeLight } from "./theme";
 import PeopleListPage from "./feature/PeopleListPage";
@@ -16,11 +16,14 @@ function App() {
         <Header />
 
         <Switch>
+          <Route path="/movies">
+            <MoviesListPage />
+          </Route>
           <Route path="/people">
             <PeopleListPage />
           </Route>
           <Route path="/">
-            <MoviesListPage />
+            <Redirect to="/movies"/>
           </Route>
         </Switch>
       </HashRouter>
