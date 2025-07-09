@@ -1,6 +1,6 @@
 import { Switch, Route, HashRouter, Redirect } from "react-router-dom/cjs/react-router-dom.min";
-import MoviesListPage from "./feature/moviesList/MoviesListPage";
-import PeopleListPage from "./feature/peopleList/PeopleListPage";
+import MoviesListPage from "./features/moviesList/MoviesListPage";
+import PeopleListPage from "./features/peopleList/PeopleListPage";
 import Header from "./common/Header";
 
 function App() {
