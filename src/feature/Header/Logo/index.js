@@ -1,5 +1,5 @@
 import { Image, StyledLink } from "./styled";
-import videoIcon from "../../images/video.svg";
+import videoIcon from "./video.svg";
 
 export const Logo = () => {
     return (

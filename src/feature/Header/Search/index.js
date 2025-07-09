@@ -1,5 +1,5 @@
 import { Container, Input, Image } from "./styled";
-import searchIcon from "../../images/search.svg";
+import searchIcon from "./search.svg";
 
 export const Search = () => {
     return (
