@@ -1,4 +1,4 @@
-import { Container } from "../common/Container";
+import { Container } from "../../common/Container";
 
 function MoviesListPage() {
     return (

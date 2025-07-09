@@ -1,17 +1,10 @@
-import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "./GlobalStyle";
 import { Switch, Route, HashRouter, Redirect } from "react-router-dom/cjs/react-router-dom.min";
-import MoviesListPage from "./feature/MoviesListPage";
-import { themeLight } from "./theme";
-import PeopleListPage from "./feature/PeopleListPage";
+import MoviesListPage from "./feature/moviesList/MoviesListPage";
+import PeopleListPage from "./feature/peopleList/PeopleListPage";
 import Header from "./feature/Header";
-
 
 function App() {
   return (
-    <ThemeProvider theme={themeLight}>
-      <GlobalStyle />
-
       <HashRouter>
         <Header />
 
@@ -27,7 +20,6 @@ function App() {
           </Route>
         </Switch>
       </HashRouter>
-    </ThemeProvider>
   );
 }
 
