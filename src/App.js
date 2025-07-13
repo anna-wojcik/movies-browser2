@@ -1,6 +1,6 @@
 import { Switch, Route, HashRouter, Redirect } from "react-router-dom/cjs/react-router-dom.min";
-import MoviesListPage from "./features/moviesList/MoviesListPage";
-import PeopleListPage from "./features/peopleList/PeopleListPage";
+import MoviesPage from "./features/movies/MoviesPage";
+import PeoplePage from "./features/people/PeoplePage";
 import Header from "./common/Header";
 
 function App() {
@@ -10,10 +10,10 @@ function App() {
 
         <Switch>
           <Route path="/movies">
-            <MoviesListPage />
+            <MoviesPage />
           </Route>
           <Route path="/people">
-            <PeopleListPage />
+            <PeoplePage />
           </Route>
           <Route path="/">
             <Redirect to="/movies"/>

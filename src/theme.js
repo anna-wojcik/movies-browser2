@@ -34,6 +34,13 @@ export const themeLight = {
         search: {
             content: colorName.darkerGrey,
             background: colorName.white,
+        },
+        title: {
+            content: colorName.black,
+        },
+        peopleList: {
+            content: colorName.black,
+            background: colorName.white,
         }
     }
 };

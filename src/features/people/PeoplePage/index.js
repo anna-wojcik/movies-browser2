@@ -1,19 +1,18 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Container } from "../../common/Container";
+import { Main } from "../../../common/Main/styled";
+import PeopleList from "../../../common/PeopleList";
 import {
     fetchPeople,
-    selectPeople,
     selectPage,
     selectStatus,
     selectLastPage,
     setPage,
-} from "./peopleSlice";
+} from "../peopleSlice";
+import Section from "../../../common/Section";
 
-function PeopleListPage() {
+function PeoplePage() {
     const dispatch = useDispatch();
-    const people = useSelector(selectPeople);
-    console.log(people);
     const page = useSelector(selectPage);
     const status = useSelector(selectStatus);
     const lastPage = useSelector(selectLastPage);
@@ -30,12 +29,10 @@ function PeopleListPage() {
         } else if (status === "success") {
             return (
                 <>
-                    <p>People List Page</p>
-                    <ul>
-                        {people.map(person => (
-                            <li key={person.id}>{person.name}</li>
-                        ))}
-                    </ul>
+                    <Section
+                        title="Popular people"
+                        body={<PeopleList />}
+                    />
 
                     <button
                         onClick={() => dispatch(setPage(1))}
@@ -43,7 +40,12 @@ function PeopleListPage() {
                     >
                         First
                     </button>
-                    <button disabled={page === 1}>Previous</button>
+                    <button
+                        onClick={() => dispatch(setPage(page-1))}
+                        disabled={page === 1}
+                    >
+                        Previous
+                    </button>
                     <p>Page: {page} of {lastPage}</p>
                     <button
                         onClick={() => dispatch(setPage(page + 1))}
@@ -68,12 +70,10 @@ function PeopleListPage() {
     };
 
     return (
-        <>
-            <Container>
-                {getContainerState()}
-            </Container>
-        </>
+        <Main>
+            {getContainerState()}
+        </Main>
     );
 };
 
-export default PeopleListPage;
+export default PeoplePage;
