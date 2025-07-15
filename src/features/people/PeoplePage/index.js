@@ -9,6 +9,7 @@ import {
 } from "../peopleSlice";
 import Section from "../../../common/Section";
 import Pagination from "../../../common/Pagination";
+import Loader from "../../../common/Loader";
 
 function PeoplePage() {
     const dispatch = useDispatch();
@@ -22,7 +23,10 @@ function PeoplePage() {
     const getContainerState = () => {
         if (status === "loading") {
             return (
-                <p>Ładowanie listy popularnych osób</p>
+                <Section 
+                    title="Loading popular people"
+                    body={<Loader />}
+                />
             )
         } else if (status === "success") {
             return (
