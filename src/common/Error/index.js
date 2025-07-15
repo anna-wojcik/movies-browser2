@@ -1,4 +1,4 @@
-import { StyledDangerIcon, SubTitle, Title, Wrapper } from "./styled";
+import { StyledDangerIcon, StyledLink, SubTitle, Title, Wrapper } from "./styled";
 
 
 export const Error = () => {
@@ -7,6 +7,7 @@ export const Error = () => {
             <StyledDangerIcon />
             <Title>Ooops! Something went wrong...</Title>
             <SubTitle>Please check your network connection and try again</SubTitle>
+            <StyledLink to="/">Back to home page</StyledLink>
         </Wrapper>
 
     );

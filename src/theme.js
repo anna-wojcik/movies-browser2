@@ -6,6 +6,7 @@ const colorName = {
     grey: "#E4E6F0",
     lightBlue: "#D6E4FF",
     blue: "#0044CC",
+    blueRibbon: "#004de6",
     melrose: "#B3CCFF",
 };
 
@@ -53,6 +54,13 @@ export const themeLight = {
             arrowDisabled: colorName.darkerGrey,
             hover: colorName.melrose,
             active: colorName.blue,
+        },
+        error: {
+            content: colorName.black,
+            linkBackground: colorName.blue,
+            linkContent: colorName.white,
+            linkBackgroundHover: colorName.blueRibbon,
+            activeLink: colorName.melrose,
         }
     }
 };
