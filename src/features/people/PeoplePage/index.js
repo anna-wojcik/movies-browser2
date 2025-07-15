@@ -6,16 +6,14 @@ import {
     fetchPeople,
     selectPage,
     selectStatus,
-    selectLastPage,
-    setPage,
 } from "../peopleSlice";
 import Section from "../../../common/Section";
+import Pagination from "../../../common/Pagination";
 
 function PeoplePage() {
     const dispatch = useDispatch();
     const page = useSelector(selectPage);
     const status = useSelector(selectStatus);
-    const lastPage = useSelector(selectLastPage);
 
     useEffect(() => {
         dispatch(fetchPeople());
@@ -33,32 +31,7 @@ function PeoplePage() {
                         title="Popular people"
                         body={<PeopleList />}
                     />
-
-                    <button
-                        onClick={() => dispatch(setPage(1))}
-                        disabled={page === 1}
-                    >
-                        First
-                    </button>
-                    <button
-                        onClick={() => dispatch(setPage(page-1))}
-                        disabled={page === 1}
-                    >
-                        Previous
-                    </button>
-                    <p>Page: {page} of {lastPage}</p>
-                    <button
-                        onClick={() => dispatch(setPage(page + 1))}
-                        disabled={page === lastPage}
-                    >
-                        Next
-                    </button>
-                    <button
-                        onClick={() => dispatch(setPage(lastPage))}
-                        disabled={page === lastPage}
-                    >
-                        Last
-                    </button>
+                    <Pagination />
                 </>
             )
         }
