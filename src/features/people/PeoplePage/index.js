@@ -10,6 +10,7 @@ import {
 import Section from "../../../common/Section";
 import Pagination from "../../../common/Pagination";
 import Loader from "../../../common/Loader";
+import Error from "../../../common/Error";
 
 function PeoplePage() {
     const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function PeoplePage() {
         }
         else if (status === "error") {
             return (
-                <p>Bład w trakcie ładowania. Sprawdź połączenie internetowe.</p>
+                <Error />
             )
         }
     };
