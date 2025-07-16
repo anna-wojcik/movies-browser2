@@ -38,4 +38,5 @@ export const Input = styled.input`
     border: none;
     width: 100%;
     color: ${({ theme }) => theme.colors.search.content};
+    outline: none;
 `;
