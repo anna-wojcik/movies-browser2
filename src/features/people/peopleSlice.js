@@ -18,6 +18,7 @@ const peopleSlice = createSlice({
             state.people = payload.results;
             state.lastPage = payload.results.total_pages < 500 ? payload.results.total_pages : 500;
             state.status = "success";
+            state.totalResults = payload.total_results;
         },
         fetchPeopleError: (state) => {
             state.status = "error";
