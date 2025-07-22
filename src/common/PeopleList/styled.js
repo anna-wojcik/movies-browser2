@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import styled from "styled-components";
 
 export const List = styled.ul`
@@ -35,6 +36,15 @@ export const Item = styled.li`
     }
 `;
 
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    display: block;
+    
+    &:hover {
+        box-shadow: 0px 0px 10px 2px rgba(161, 161, 162, 1);
+    }
+`;
+
 export const Image = styled.img`
     width: 100%;
     height: auto;
@@ -53,6 +63,7 @@ export const Name = styled.h2`
     font-weight: 500;
     text-align: center;
     margin: 0;
+    color: ${({ theme }) => theme.colors.peopleList.content};
 
     @media(max-width: ${({ theme }) => theme.breakpoint.largeMax}px) {
         font-size: 18px;

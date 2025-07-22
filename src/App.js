@@ -2,6 +2,8 @@ import { Switch, Route, HashRouter, Redirect } from "react-router-dom/cjs/react-
 import MoviesPage from "./features/movies/MoviesPage";
 import PeoplePage from "./features/people/PeoplePage";
 import Header from "./common/Header";
+import { toMovies, toPeople, toPerson } from "./routes";
+import PersonPage from "./features/people/PersonPage";
 
 function App() {
   return (
@@ -9,14 +11,17 @@ function App() {
         <Header />
 
         <Switch>
-          <Route path="/movies">
+          <Route path={toPerson()}>
+            <PersonPage />
+          </Route>
+          <Route path={toMovies()}>
             <MoviesPage />
           </Route>
-          <Route path="/people">
+          <Route path={toPeople()}>
             <PeoplePage />
           </Route>
           <Route path="/">
-            <Redirect to="/movies"/>
+            <Redirect to={toMovies()}/>
           </Route>
         </Switch>
       </HashRouter>

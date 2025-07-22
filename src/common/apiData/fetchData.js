@@ -23,4 +23,24 @@ export const getPeopleSearch = async (query, page) => {
         }
     });
     return response.data;
-}
+};
+
+export const getPerson = async (id) => {
+    const response = await axios.get(`${API_URL}/person/${id}`, {
+        params: {
+            api_key: API_KEY,
+            language: "en-US",
+        }
+    });
+    return response.data;
+};
+
+export const getPersonMovieCredits = async (id) => {
+    const response = await axios.get(`${API_URL}/person/${id}/movie_credits`, {
+        params: {
+            api_key: API_KEY,
+            language: "en-US",
+        }
+    });
+    return response.data;
+};

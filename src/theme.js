@@ -8,6 +8,7 @@ const colorName = {
     blue: "#0044CC",
     blueRibbon: "#004de6",
     melrose: "#B3CCFF",
+    stormGray: "#74788B",
 };
 
 const common = {
@@ -61,6 +62,20 @@ export const themeLight = {
             linkContent: colorName.white,
             linkBackgroundHover: colorName.blueRibbon,
             activeLink: colorName.melrose,
+        },
+        tileDetails: {
+            content: colorName.black,
+            info: colorName.stormGray,
+            infoValue: colorName.black,
+            background: colorName.white,
+        },
+        genres: {
+            content: colorName.black,
+            background: colorName.grey,
+        },
+        vote: {
+            content: colorName.black,
+            subContent: colorName.darkerGrey,
         }
     }
 };
