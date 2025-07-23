@@ -76,6 +76,11 @@ export const themeLight = {
         vote: {
             content: colorName.black,
             subContent: colorName.darkerGrey,
+        },
+        tileMovie: {
+            content: colorName.black,
+            subContent: colorName.darkerGrey,
+            background: colorName.white,
         }
     }
 };

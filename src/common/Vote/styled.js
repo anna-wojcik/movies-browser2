@@ -15,8 +15,21 @@ export const VoteParagrapgh = styled.p`
     };
     @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
         font-weight: 600;
-        font-size: 12px;
+        font-size: 13px;
     };
+
+    ${({ $inTileMovie }) => $inTileMovie && css`
+        font-size: 16px;
+        font-weight: 600;
+
+        @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+            font-size: 14px;
+        };
+
+        @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
+            font-size: 12px;
+        }
+    `}
 `;
 
 export const Star = styled.img`
@@ -39,7 +52,7 @@ export const Span = styled.span`
     align-self: flex-end;
 
     @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
-        font-size: 12px;
+        font-size: 13px;
         color: ${({ theme }) => theme.colors.vote.subContent};
         align-self: center;
     };  
@@ -49,6 +62,19 @@ export const Span = styled.span`
         @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
             display: none;
         };
+    `}
+
+    ${({ $inTileMovie }) => $inTileMovie && css`
+        font-size: 16px;
+        color: ${({ theme }) => theme.colors.vote.subContent};
+        align-self: center;
+        @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+            font-size: 14px;
+        };
+
+        @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
+            font-size: 13px;
+        }
     `}
 `;
 

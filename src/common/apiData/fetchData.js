@@ -44,3 +44,13 @@ export const getPersonMovieCredits = async (id) => {
     });
     return response.data;
 };
+
+export const getGenres = async () => {
+    const response = await axios.get(`${API_URL}/genre/movie/list`, {
+        params: {
+            api_key: API_KEY,
+            language: "en-US",
+        }
+    });
+    return response.data;
+}

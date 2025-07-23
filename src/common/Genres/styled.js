@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
     display: flex;
@@ -13,6 +13,13 @@ export const Wrapper = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
         gap: 8px;
     };
+
+    ${({ $inTileMovie }) => $inTileMovie && css`
+        gap: 8px;
+        @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+            gap: 8px;
+        };
+    `}
 `;
 
 export const Genre = styled.div`

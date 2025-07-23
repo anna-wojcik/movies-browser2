@@ -1,15 +1,22 @@
 import { Span, Star, VoteParagrapgh } from "./styled";
 import starIcon from "./star.svg";
 
-export const Vote = ({ vote_average, vote_count }) => {
-    const roundVoteAverage = vote => Math.round(vote*100) / 100;
-
+export const Vote = ({ vote_average, vote_count, inTileMovie }) => {
+    const roundVoteAverage = vote => vote.toFixed(1);
+    
     return (
-        <VoteParagrapgh>
-            <Star src={starIcon} alt="Star"></Star>
-            {roundVoteAverage(vote_average)}
-            <Span $skale>/ 10</Span>
-            <Span>{vote_count} votes</Span>
+        <VoteParagrapgh $inTileMovie={inTileMovie}>
+            {vote_average !== 0 || vote_count !== 0
+                ? (
+                    <>
+                        <Star src={starIcon} alt="Star"></Star>
+                        {roundVoteAverage(vote_average)}
+                        {!inTileMovie && <Span $inTileMovie={inTileMovie} $skale>/ 10</Span>}
+                        <Span $inTileMovie={inTileMovie}>{vote_count} votes</Span>
+                    </>
+                )
+                : <Span $inTileMovie={inTileMovie}>No votes yet</Span>
+            }
         </VoteParagrapgh>
     )
 };

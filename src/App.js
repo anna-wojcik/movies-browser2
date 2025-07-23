@@ -1,30 +1,39 @@
 import { Switch, Route, HashRouter, Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import MoviesPage from "./features/movies/MoviesPage";
 import PeoplePage from "./features/people/PeoplePage";
 import Header from "./common/Header";
 import { toMovies, toPeople, toPerson } from "./routes";
 import PersonPage from "./features/people/PersonPage";
+import { fetchGenres } from "./common/Genres/genresSlice";
 
 function App() {
-  return (
-      <HashRouter>
-        <Header />
+  const dispatch = useDispatch();
 
-        <Switch>
-          <Route path={toPerson()}>
-            <PersonPage />
-          </Route>
-          <Route path={toMovies()}>
-            <MoviesPage />
-          </Route>
-          <Route path={toPeople()}>
-            <PeoplePage />
-          </Route>
-          <Route path="/">
-            <Redirect to={toMovies()}/>
-          </Route>
-        </Switch>
-      </HashRouter>
+  useEffect(() => {
+    dispatch(fetchGenres());
+  }, [dispatch]);
+
+  return (
+    <HashRouter>
+      <Header />
+
+      <Switch>
+        <Route path={toPerson()}>
+          <PersonPage />
+        </Route>
+        <Route path={toMovies()}>
+          <MoviesPage />
+        </Route>
+        <Route path={toPeople()}>
+          <PeoplePage />
+        </Route>
+        <Route path="/">
+          <Redirect to={toMovies()} />
+        </Route>
+      </Switch>
+    </HashRouter>
   );
 }
 
