@@ -6,7 +6,7 @@ export const Vote = ({ vote_average, vote_count, inTileMovie }) => {
     
     return (
         <VoteParagrapgh $inTileMovie={inTileMovie}>
-            {vote_average !== 0 || vote_count !== 0
+            {vote_average && vote_count
                 ? (
                     <>
                         <Star src={starIcon} alt="Star"></Star>
