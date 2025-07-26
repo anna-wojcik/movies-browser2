@@ -9,6 +9,7 @@ import {
     selectStatus,
     fetchPeopleSearch,
     selectTotalResults,
+    selectLastPage,
 } from "../peopleSlice";
 import Section from "../../../common/Section";
 import Pagination from "../../../common/Pagination";
@@ -20,11 +21,13 @@ import NoResults from "../../../common/NoResults";
 function PeoplePage() {
     const dispatch = useDispatch();
     const page = useSelector(selectPage);
+    const lastPage = useSelector(selectLastPage);
     const status = useSelector(selectStatus);
     const totalResults = useSelector(selectTotalResults);
     const { search } = useLocation();
     const searchParams = new URLSearchParams(search);
     const query = searchParams.get(searchQueryParamNames);
+    const trimmedQuery = query?.trim();
 
     useEffect(() => {
         if (query && query.trim() !== "") {
@@ -38,7 +41,7 @@ function PeoplePage() {
         if (status === "loading") {
             return (
                 <Section
-                    title={!query || query.trim() === "" ? "Loading popular people" : `Search results for "${query.trim()}"`}
+                    title={!query || trimmedQuery === "" ? "Loading popular people" : `Search results for "${trimmedQuery}"`}
                     body={<Loader />}
                 />
             )
@@ -46,10 +49,21 @@ function PeoplePage() {
             return (
                 <>
                     <Section
-                        title={!query || query.trim() === "" ? "Popular people" : `Search results for "${query.trim()}" (${totalResults})`}
+                        title={
+                            totalResults > 0 ? (
+                                !query || trimmedQuery === "" ? "Popular people" : `Search results for "${trimmedQuery}" (${totalResults})`
+                            ) : `Sorry, there are no results for "${trimmedQuery}"`
+                        }
                         body={totalResults > 0 ? <PeopleList /> : <NoResults />}
                     />
-                    {totalResults > 0 ? <Pagination /> : null}
+                    {totalResults > 0
+                        ? (
+                            <Pagination
+                                page={page}
+                                lastPage={lastPage}
+                            />
+                        )
+                        : null}
                 </>
             )
         }

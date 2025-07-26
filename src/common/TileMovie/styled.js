@@ -8,6 +8,7 @@ export const Item = styled.li`
     border-radius: 5px;
     background: ${({ theme }) => theme.colors.tileMovie.background};
     gap: 16px;
+    height: 100%;
     @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
         flex-direction: row;
     }

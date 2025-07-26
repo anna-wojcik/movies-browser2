@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { Item, StyledLink, Image, Title, Paragraph, Role, Box } from "./styled";
 import { toMovie } from "../../routes";
 import no_poster_picture from "./no_poster.svg";
@@ -11,14 +12,17 @@ import { selectGenres } from "../Genres/genresSlice";
 
 
 export const TileMovie = ({ isLink, id, poster_path, title, role, release_date, genre_ids, vote_average, vote_count }) => {
+    const location = useLocation();
     const getYear = (date) => new Date(date).getFullYear();
     const width = useWindowDimensions();
     const allGenres = useSelector(selectGenres);
 
-    const getGenresByIds = (genre_ids, allGenres) =>
+    const getGenresByIds = (genre_ids = [], allGenres = []) =>
         genre_ids.map(id => allGenres.find(genre => genre.id === id)).filter(Boolean);
 
     const genreObjects = useMemo(() => getGenresByIds(genre_ids, allGenres), [genre_ids, allGenres]);
+
+    const isMoviesPage = location.pathname.startsWith("/movies");
 
     const content = (
         <Item key={isLink ? id : undefined}>
@@ -34,11 +38,16 @@ export const TileMovie = ({ isLink, id, poster_path, title, role, release_date, 
                 <Box $internal>
                     <Title>{title}</Title>
                     <Paragraph>
-                        <Role>{role} </Role>
+                        {role && <Role>{role} </Role>}
                         {release_date && (
-                            width > 640
-                                ? `(${getYear(release_date)})`
-                                : `${getYear(release_date)}`
+                            isMoviesPage ? (
+                                `${getYear(release_date)}`
+                            )
+                            : (
+                                width > 640
+                                    ? `(${getYear(release_date)})`
+                                    : `${getYear(release_date)}`
+                            )
                         )}
                     </Paragraph>
                     {genreObjects.length > 0 && (

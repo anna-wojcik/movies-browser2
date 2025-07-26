@@ -23,7 +23,7 @@ const peopleSlice = createSlice({
         fetchPeopleError: (state) => {
             state.status = "error";
         },
-        setPage: (state, { payload: pageNumber }) => {
+        setPeoplePage: (state, { payload: pageNumber }) => {
             state.page = pageNumber;
         },
         fetchPeopleSearch: (state, { payload }) => {
@@ -43,7 +43,7 @@ export const {
     fetchPeople,
     fetchPeopleSuccess,
     fetchPeopleError,
-    setPage,
+    setPeoplePage,
     fetchPeopleSearch,
     fetchPeopleSearchSuccess,
 } = peopleSlice.actions;

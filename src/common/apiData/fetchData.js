@@ -53,4 +53,28 @@ export const getGenres = async () => {
         }
     });
     return response.data;
+};
+
+export const getMovies = async (page) => {
+    const response = await axios.get(`${API_URL}/movie/popular`, {
+        params: {
+            api_key: API_KEY,
+            language: "en-US",
+            page,
+        }
+    });
+    return response.data;
+};
+
+export const getMoviesSearch = async(query, page) => {
+    const response = await axios.get(`${API_URL}/search/movie`, {
+        params: {
+            api_key: API_KEY,
+            language: "en-US",
+            query,
+            page,
+            include_adult: false,
+        }
+    });
+    return response.data;
 }
