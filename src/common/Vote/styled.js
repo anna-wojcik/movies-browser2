@@ -29,7 +29,24 @@ export const VoteParagrapgh = styled.p`
         @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
             font-size: 12px;
         }
-    `}
+    `};
+    
+    ${({ $inBackdrop }) => $inBackdrop && css`
+        font-size: 30px;
+        font-weight: 500;
+        color: ${({ theme }) => theme.colors.vote.contentInBackdrop};
+        line-height: 1.3;
+        width: 150px;
+
+        @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+            font-size: 20px;
+            width: 100%;
+        };
+
+        @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
+            font-size: 14px;
+        };
+    `};
 `;
 
 export const Star = styled.img`
@@ -43,6 +60,11 @@ export const Star = styled.img`
         height: 16px;
         width: 16px;
     };
+
+    ${({ $inBackdrop }) => $inBackdrop && css`
+        height: 40px;
+        width: 40px;
+    `};
 `;
 
 export const Span = styled.span`
@@ -62,7 +84,7 @@ export const Span = styled.span`
         @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
             display: none;
         };
-    `}
+    `};
 
     ${({ $inTileMovie }) => $inTileMovie && css`
         font-size: 16px;
@@ -75,6 +97,26 @@ export const Span = styled.span`
         @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
             font-size: 13px;
         }
-    `}
+    `};
+
+    ${({ $inBackdrop }) => $inBackdrop && css`
+        font-size: 16px;
+        color: ${({ theme }) => theme.colors.vote.contentInBackdrop};
+
+        @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+            font-size: 14px;
+        };
+
+        @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
+            font-size: 10px;
+            color: ${({ theme }) => theme.colors.vote.contentInBackdrop};
+        };
+        ${({ $skale }) => $skale && css`
+            @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
+                margin-right: 0;
+                display: inline;
+            };
+        `};
+    `};
 `;
 

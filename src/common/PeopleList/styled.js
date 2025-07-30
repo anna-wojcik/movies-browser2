@@ -15,7 +15,6 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-    height: 339px;
     background: ${({ theme }) => theme.colors.peopleList.background};
     border-radius: 5px;
     padding: 16px;
@@ -23,6 +22,7 @@ export const Item = styled.li`
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    height: 100%;
     
     @media(max-width: ${({ theme }) => theme.breakpoint.largeMax}px) {
         padding: 12px;
@@ -30,7 +30,6 @@ export const Item = styled.li`
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
-        height: 245px;
         padding: 8px;
         gap: 8px;
     }
@@ -39,7 +38,7 @@ export const Item = styled.li`
 export const StyledLink = styled(Link)`
     text-decoration: none;
     display: block;
-    
+
     &:hover {
         box-shadow: 0px 0px 10px 2px rgba(161, 161, 162, 1);
     }
@@ -71,5 +70,21 @@ export const Name = styled.h2`
 
     @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
         font-size: 14px;
+    }
+`;
+
+export const Role = styled.p`
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    color: ${({ theme }) => theme.colors.peopleList.role};
+    text-align: center;
+
+    @media(max-width: ${({ theme }) => theme.breakpoint.largeMax}px) {
+        font-size: 16px;
+    }
+
+    @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
+        font-size: 13px;
     }
 `;

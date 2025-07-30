@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
 
     ${({ $external }) => $external && css`
         padding: 0;
+        box-shadow: 0px 0px 20px 4px rgba(221, 221, 221, 1);
 
         @media(max-width: ${({ theme }) => theme.breakpoint.largeMax}px) {
             flex-direction: column;
@@ -64,6 +65,15 @@ export const Box = styled.div`
         @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
             gap: 8px;
             padding: 0;
+        };
+    `};
+
+    ${({ $isMovie }) => $isMovie && css`
+        @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+            gap: 16px;
+        };
+        @media(max-width: ${({ theme }) => theme.breakpoint.smallMax}px) {
+            gap: 8px;
         };
     `};
 `;

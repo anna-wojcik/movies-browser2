@@ -44,6 +44,7 @@ export const themeLight = {
         peopleList: {
             content: colorName.black,
             background: colorName.white,
+            role: colorName.darkerGrey,
         },
         pagination: {
             content: colorName.darkerGrey,
@@ -76,11 +77,16 @@ export const themeLight = {
         vote: {
             content: colorName.black,
             subContent: colorName.darkerGrey,
+            contentInBackdrop: colorName.white,
         },
         tileMovie: {
             content: colorName.black,
             subContent: colorName.darkerGrey,
             background: colorName.white,
+        },
+        backdrop: {
+            content: colorName.white,
+            background: colorName.black,
         }
     }
 };

@@ -5,6 +5,7 @@ import { Main } from "../../../common/Main/styled";
 import PeopleList from "../../../common/PeopleList";
 import {
     fetchPeople,
+    selectPeople,
     selectPage,
     selectStatus,
     fetchPeopleSearch,
@@ -20,6 +21,7 @@ import NoResults from "../../../common/NoResults";
 
 function PeoplePage() {
     const dispatch = useDispatch();
+    const people = useSelector(selectPeople);
     const page = useSelector(selectPage);
     const lastPage = useSelector(selectLastPage);
     const status = useSelector(selectStatus);
@@ -54,7 +56,12 @@ function PeoplePage() {
                                 !query || trimmedQuery === "" ? "Popular people" : `Search results for "${trimmedQuery}" (${totalResults})`
                             ) : `Sorry, there are no results for "${trimmedQuery}"`
                         }
-                        body={totalResults > 0 ? <PeopleList /> : <NoResults />}
+                        body={totalResults > 0 ? (
+                            <PeopleList
+                                peopleProps={people}
+                                showRole={false}
+                            />
+                        ) : <NoResults />}
                     />
                     {totalResults > 0
                         ? (

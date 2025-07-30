@@ -66,7 +66,7 @@ export const getMovies = async (page) => {
     return response.data;
 };
 
-export const getMoviesSearch = async(query, page) => {
+export const getMoviesSearch = async (query, page) => {
     const response = await axios.get(`${API_URL}/search/movie`, {
         params: {
             api_key: API_KEY,
@@ -77,4 +77,24 @@ export const getMoviesSearch = async(query, page) => {
         }
     });
     return response.data;
-}
+};
+
+export const getMovie = async (id) => {
+    const response = await axios.get(`${API_URL}/movie/${id}`, {
+        params: {
+            api_key: API_KEY,
+            language: "en-US",
+        }
+    });
+    return response.data;
+};
+
+export const getMovieCredits = async (id) => {
+    const response = await axios.get(`${API_URL}/movie/${id}/credits`, {
+        params: {
+            api_key: API_KEY,
+            language: "en-US",
+        }
+    });
+    return response.data;
+};

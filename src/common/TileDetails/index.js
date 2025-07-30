@@ -6,7 +6,7 @@ import { useWindowDimensions } from "../../useWindowDimensions";
 import Genres from "../Genres";
 import Vote from "../Vote";
 
-export const TileDetails = ({ nameObject, object }) => {
+export const TileDetails = ({ nameObject, object, isMovie }) => {
     const width = useWindowDimensions();
     const handleData = date => (new Date(date)).toLocaleDateString();
     const getYear = (date) => new Date(date).getFullYear();
@@ -22,7 +22,7 @@ export const TileDetails = ({ nameObject, object }) => {
                             : no_profile_picture}
                         alt={object.name}>
                     </Image>
-                    <Box>
+                    <Box $isMovie={isMovie}>
                         <Title>{object.name}</Title>
                         <Box $info>
                             <InfoContainer>
@@ -62,7 +62,7 @@ export const TileDetails = ({ nameObject, object }) => {
                             : no_poster_picture}
                         alt={object.title}>
                     </Image>
-                    <Box>
+                    <Box $isMovie={isMovie}>
                         <Title>{object.title}</Title>
                         {object.release_date &&
                             <Year>{getYear(object.release_date)}</Year>

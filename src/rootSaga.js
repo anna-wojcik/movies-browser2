@@ -3,6 +3,7 @@ import { peopleSaga } from "./features/people/peopleSaga";
 import { personSaga } from "./features/people/PersonPage/personSaga";
 import { genresSaga } from "./common/Genres/genresSaga";
 import { moviesSaga } from "./features/movies/MoviesPage/moviesSaga";
+import { movieSaga } from "./features/movies/MoviePage/movieSaga";
 
 export default function* rootSaga() {
     yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
         personSaga(),
         genresSaga(),
         moviesSaga(),
+        movieSaga(),
     ]);
 };
