@@ -1,6 +1,56 @@
-# Getting Started with Create React App
+# Movies Browser
+Movies Browser is a responsive web application that allows users to browse and search for movies and people using data from The Movie Database (TMDB). Users can view detailed movie and person information, including posters, cast, crew, release dates, and more.
+<br>Here is a working live demo: https://anna-wojcik.github.io/movies-browser2/#/movies.
+<br>This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+* [Site](#site)
+    * [Home page](#home-page)
+    * [Movie details page](#movie-details-page)
+    * [People page](#people-page)
+    * [Person details page](#person-details-page)
+* [Technologies Used](#technologies-used)
+* [Available Scripts](#available-scripts)
+* [Acknowledgements](#acknowledgements)
+* [Author](#author)
+
+## Site
+The application consists of two main subpages: 
+* Movies - includes a list of popular movies and search functionality.
+* People - includes a list of popular people and search functionality.
+
+Each item links to a detailed page with more information about the movie or person.
+
+### Home page
+Displays a list of the most popular movies fetched from TMBD. Users can navigate through list of movies using pagination at the bottom of the list. Each movie tile includes a title, poster, release date, genres and rating. Users can also search for movies using the search bar. 
+
+![alt text](movies-browser-gif1.gif)
+
+### Movie details page
+Includes an overview of the selected movie: backdrop image, title, place of production, release date, genres, rating, description. Users can also view the cast and crew of the movie.
+
+### People page
+Depicts a list of popular people fetched from TMBD. Users can navigate through list of people using pagination at the bottom. Clicing on a person leads to their details page.
+
+![alt text](movies-browser-gif2.gif)
+
+### Person details page
+Shows detailed information about an individual: biography, birthday and place of birth, profile image. Includes two sections: a list of movies they acted in, and a list of movies where they were part of the crew.
+
+## Technologies Used
+- JavaScript ES6
+- React
+- Redux - Saga, Toolkit
+- React Router
+- Axios
+- Styled Components
+- Hooks (useState, useEffect, useHistory, useLocation, useParams, useMemo)
+- Custom Hooks
+- HTML 5
+- CSS 3
+- Normalize CSS
+- BEM Convention
+- Responsive design (Flex, Grid, Media Queries)
 
 ## Available Scripts
 
@@ -13,11 +63,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -39,32 +84,8 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Acknowledgements
+This application was created as part of the "Frontend Developer from the basis" course from the online programming school YouCode, using data from TMDB API.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+Created by Anna Wójcik.
